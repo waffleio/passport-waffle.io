@@ -1,0 +1,47 @@
+{
+  "name": "passport-waffle.io",
+  "version": "0.0.0",
+  "description": "Waffle.io authentication strategy for Passport",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zandrr/passport-waffle.io.git"
+  },
+  "keywords": [
+    "passport",
+    "github",
+    "waffle",
+    "waffle.io",
+    "auth",
+    "authn",
+    "authentication",
+    "identity",
+    "oauth",
+    "oauth2"
+  ],
+  "author": "Jacob Burton",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/Zandrr/passport-waffle.io/issues"
+  },
+  "homepage": "https://github.com/Zandrr/passport-waffle.io",
+  "dependencies": {
+    "passport-oauth2": "~1.1.2",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-coffee": "~0.10.1",
+    "coffee-script": "~1.7.1",
+    "lodash": "~2.4.1",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-cli": "~0.1.13",
+    "grunt": "~0.4.5",
+    "grunt-mocha-test": "~0.11.0"
+  }
+}
