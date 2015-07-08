@@ -1,6 +1,6 @@
 {
   "name": "passport-waffle.io",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Waffle.io OAuth 2.0 authentication strategy for Passport",
   "main": "./lib/index.js",
   "engines": {
