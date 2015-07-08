@@ -3,6 +3,10 @@
 module.exports = (grunt) ->
 
   grunt.initConfig
+    bump:
+      options:
+        pushTo: 'origin'
+
     coffee:
       src:
         expand: true
@@ -24,13 +28,24 @@ module.exports = (grunt) ->
           reporter: 'dot'
           require: [
             'coffee-script/register'
-            'spec/spec-global.coffee'
+            'spec/support/spec-global.coffee'
           ]
-        src: ['spec/**/*.coffee']
+        src: [
+          'spec/support/spec-helper.coffee'
+          'spec/**/*spec.coffee'
+        ]
+
+  if grunt.option.flags().indexOf('--test') > -1
+    grunt.config.merge
+      watch:
+        serverTest:
+          files: '{src,spec}/**/*.coffee'
+          tasks: ['test:server']
 
   grunt.registerTask 'test', ['mochaTest']
   grunt.registerTask 'default', ['clean', 'coffee']
 
+  grunt.loadNpmTasks 'grunt-bump'
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-mocha-test'

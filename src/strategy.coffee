@@ -16,6 +16,7 @@ InternalOAuthError = OAuth2Strategy.InternalOAuthError
  *
  * Options:
  *   - `baseURL`       base url for Waffle.io. defaults to 'https://waffle.io'
+ *   - `baseApiURL`    base url for the Waffle.io API. defaults to 'https://api.waffle.io'
  *   - `clientID`      your Waffle.io application's Client ID
  *   - `clientSecret`  your Waffle.io application's Client Secret
  *   - `callbackURL`   URL to which Waffle.io will redirect the user after granting authorization
@@ -46,9 +47,10 @@ InternalOAuthError = OAuth2Strategy.InternalOAuthError
 ###
 Strategy = (options={}, verify) ->
   options.baseURL ?= 'https://waffle.io'
+  options.baseApiURL ?= 'https://api.waffle.io'
   options.authorizationURL ?= "#{options.baseURL}/login/oauth/authorize"
   options.tokenURL ?= "#{options.baseURL}/login/oauth/token"
-  options.userProfileURL ?= "#{options.baseURL}/api/user"
+  options.userProfileURL ?= "#{options.baseApiURL}/user"
   options.customHeaders ?= {}
 
   unless options.customHeaders['User-Agent']
@@ -80,7 +82,6 @@ util.inherits Strategy, OAuth2Strategy
  * @api protected
 ###
 Strategy.prototype.userProfile = (accessToken, done) ->
-  console.log 'accessToken:', accessToken
   @_oauth2.get @_userProfileURL, accessToken, (err, body, res) ->
     if err?
       return done(new InternalOAuthError('Failed to fetch user profile', err))

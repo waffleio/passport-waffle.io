@@ -1,14 +1,19 @@
 {
   "name": "passport-waffle.io",
   "version": "0.0.0",
-  "description": "Waffle.io authentication strategy for Passport",
+  "description": "Waffle.io OAuth 2.0 authentication strategy for Passport",
   "main": "./lib/index.js",
+  "engines": {
+    "node": "0.12.x",
+    "npm": "2.x"
+  },
   "scripts": {
-    "test": "npm test"
+    "prepublish": "./node_modules/.bin/grunt",
+    "test": "./node_modules/.bin/grunt test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Zandrr/passport-waffle.io.git"
+    "url": "https://github.com/waffleio/passport-waffle.io.git"
   },
   "keywords": [
     "passport",
@@ -20,28 +25,37 @@
     "authentication",
     "identity",
     "oauth",
-    "oauth2"
+    "oauth2",
+    "strategy"
   ],
   "author": "Jacob Burton",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://www.opensource.org/licenses/MIT"
-    }
-  ],
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Zandrr/passport-waffle.io/issues"
+    "url": "https://github.com/waffleio/passport-waffle.io/issues"
   },
-  "homepage": "https://github.com/Zandrr/passport-waffle.io",
+  "homepage": "https://github.com/waffleio/passport-waffle.io",
   "dependencies": {
     "passport-oauth2": "~1.1.2",
-    "grunt-contrib-clean": "~0.6.0",
-    "grunt-contrib-coffee": "~0.10.1",
-    "coffee-script": "~1.7.1",
-    "lodash": "~2.4.1",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-cli": "~0.1.13",
-    "grunt": "~0.4.5",
-    "grunt-mocha-test": "~0.11.0"
+    "lodash": "~2.4.1"
+  },
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "chai-as-promised": "^5.1.0",
+    "chai-things": "^0.2.0",
+    "coffee-script": "^1.9.3",
+    "grunt": "^0.4.5",
+    "grunt-bump": "^0.3.1",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-coffee": "^0.13.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-mocha-test": "^0.12.7",
+    "lodash": "^2.4.2",
+    "mocha": "^2.2.5",
+    "node-proxy": "^0.9.0",
+    "q": "^1.4.1",
+    "sinon": "^1.15.4",
+    "sinon-chai": "^2.8.0",
+    "string": "^3.3.0"
   }
 }
